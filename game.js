@@ -236,4 +236,9 @@ const GameEngine = (function() {
     return { start: init };
 })();
 
-document.addEventListener('DOMContentLoaded', GameEngine.start);
+// Sayfa hazır olduğunda veya hemen başlat
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    GameEngine.start();
+} else {
+    document.addEventListener('DOMContentLoaded', GameEngine.start);
+}

@@ -44,6 +44,24 @@
         <p>Stadyum Hazırlanıyor...</p>
     </div>
 
+    <script>
+        // Acil durum: Oyun 5 saniye içinde yüklenmezse ekranı zorla kapat
+        setTimeout(() => {
+            const ls = document.getElementById('loading-screen');
+            if (ls && ls.style.display !== 'none') {
+                console.warn("Oyun yüklenemedi, ekran zorla kapatılıyor...");
+                ls.style.opacity = '0';
+                ls.style.pointerEvents = 'none';
+                setTimeout(() => { ls.style.display = 'none'; }, 500);
+            }
+        }, 5000);
+
+        // Hataları yakala ve ekranda göster
+        window.onerror = function(msg, url, line) {
+            alert("Bir hata oluştu: " + msg + "\nSatır: " + line);
+            return false;
+        };
+    </script>
     <script src="game.js"></script>
 </body>
 </html>
