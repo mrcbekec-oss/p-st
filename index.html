@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PES 2026 - 3D Football Evolution</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <!-- UI Elements -->
+    <div id="ui-layer">
+        <div class="match-info">
+            <div class="score-board">
+                <div class="team home">
+                    <span class="team-name">EV SAHİBİ</span>
+                    <span id="home-score" class="score">0</span>
+                </div>
+                <div class="timer" id="match-timer">00:00</div>
+                <div class="team away">
+                    <span id="away-score" class="score">0</span>
+                    <span class="team-name">RAKİP</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-hint">
+            <div class="hint-item"><span>WASD</span> Hareket</div>
+            <div class="hint-item"><span>SPACE</span> Şut</div>
+            <div class="hint-item"><span>K</span> Pas</div>
+            <div class="hint-item"><span>SHIFT</span> Depar</div>
+        </div>
+
+        <div id="goal-announcement" class="hidden">
+            <h1>GOOOOOL!</h1>
+        </div>
+    </div>
+
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p>Stadyum Hazırlanıyor...</p>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
