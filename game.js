@@ -34,6 +34,7 @@ const GameEngine = (function() {
      * Initialize the game
      */
     function init() {
+        console.log("Game initialization started...");
         scene = new THREE.Scene();
         scene.background = new THREE.Color(0x05050a);
         scene.fog = new THREE.Fog(0x05050a, 100, 300);
@@ -57,6 +58,8 @@ const GameEngine = (function() {
         createTeams();
         setupControls();
 
+        console.log("Initialization complete, starting game loop...");
+
         window.addEventListener('resize', onWindowResize);
         
         // Start Game
@@ -65,11 +68,15 @@ const GameEngine = (function() {
         
         // Hide loading screen
         setTimeout(() => {
-            document.getElementById('loading-screen').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('loading-screen').style.display = 'none';
-            }, 500);
-        }, 1500);
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.pointerEvents = 'none';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }
+        }, 1000);
 
         // Timer Interval
         setInterval(() => {
